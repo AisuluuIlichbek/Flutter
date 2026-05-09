@@ -8,23 +8,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int san = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Tapshyrma 1')),
+        title: const Center(child: Text('Тапшырма 1')),
       ),
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Center(
           child: Container(
             child: Center(
-              child: const Text(
-                'San:0',
-                style: TextStyle(color: Colors.black, fontSize: 30),
+              child: Text(
+                'Сан: $san',
+                style: const TextStyle(color: Colors.black, fontSize: 30),
               ),
             ),
-            width: 375,
-            height: 55,
+            width: 350,
+            height: 45,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.grey,
@@ -32,34 +33,47 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         const SizedBox(
-          height: 30,
+          height: 40,
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 80,
-              height: 55,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.blue,
-              ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+              onPressed: () {
+                setState(() {
+                  san = san + 1;
+                });
+              },
+              child: const Icon(Icons.add, color: Colors.white),
+            ),
+            const SizedBox(
+              width: 30,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+              onPressed: () {
+                setState(() {
+                  san = san - 1;
+                });
+              },
               child: const Icon(
-                Icons.add,
-                size: 40,
+                Icons.remove,
                 color: Colors.white,
               ),
             ),
-            const SizedBox(width: 140),
-            Container(
-              width: 80,
-              height: 55,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.blue,
-              ),
+            const SizedBox(
+              width: 20,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+              onPressed: () {
+                setState(() {
+                  san = san * 2;
+                });
+              },
               child: const Icon(
-                Icons.add,
-                size: 40,
+                Icons.remove,
                 color: Colors.white,
               ),
             ),
