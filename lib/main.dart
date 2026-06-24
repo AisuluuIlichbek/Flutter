@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tapshyrma_1/my_home_page.dart';
+import 'package:get/route_manager.dart';
+import 'package:tapshyrma_1/getX_lesson/first/view/first_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
-    );
+    return GetMaterialApp(debugShowCheckedModeBanner: false, home: FirstView());
   }
 }

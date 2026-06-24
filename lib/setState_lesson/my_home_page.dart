@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:tapshyrma_1/setState_lesson/second_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -9,8 +12,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int san = 0;
+  int number = 0;
   @override
   Widget build(BuildContext context) {
+    number++;
+    log('number build ---> $number');
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('Тапшырма 1')),
@@ -62,22 +68,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.white,
               ),
             ),
-            const SizedBox(
-              width: 20,
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
-              onPressed: () {
-                setState(() {
-                  san = san * 2;
-                });
-              },
-              child: const Icon(
-                Icons.remove,
-                color: Colors.white,
-              ),
-            ),
           ],
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => SecondPage(data: san.toString())));
+          },
+          child: const Icon(
+            Icons.navigate_next,
+            color: Colors.blue,
+            size: 50,
+          ),
         ),
       ]),
     );
